@@ -2,12 +2,12 @@
   .side__header
     .side__header__box
       .side__header__box__user-name
-        masa
+        = current_user.name
       .side__header__box__menu
         = link_to "#" do
-          = icon('fas', 'edit')
-        = link_to "#" do
-          = icon('fas', 'cog')
+          = icon('fas', 'edit', class: 'icon')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'icon')
   .side__contents
     .side__contents__group
       .side__contents__group__group-name
