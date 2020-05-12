@@ -1,0 +1,39 @@
+.main
+  .main__header
+    .main__header__left
+      .main__header__left__current-group
+        test
+      .main__header__left__member-list
+        Member：masa
+    .main__header__edit-btn
+      = link_to "#" do
+        Edit
+
+  .contents
+    .contents__messages
+      .contents__messages__date
+        masa
+        %span 2019/11/20(Wed) 17:43:01
+      .contents__messages__message
+        おはよう！
+    .contents__messages
+      .contents__messages__date
+        masa
+        %span 2019/11/20(Wed) 17:43:01
+      .contents__messages__message
+        おはよう！
+    .contents__messages
+      .contents__messages__date
+        masa
+        %span 2019/11/20(Wed) 17:43:01
+      .contents__messages__message
+        おはよう！
+
+  .footer
+    %form
+      .input
+        %input{type: "text", class: "input__text", placeholder: "type a message"}
+        %label{class: "input__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input__image__file"}
+      %input{type: "submit", value: "Send", class: "submit-btn"}
