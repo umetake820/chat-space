@@ -4,28 +4,15 @@
       .side__header__box__user-name
         = current_user.name
       .side__header__box__menu
-        = link_to "#" do
+        = link_to new_group_path do
           = icon('fas', 'edit', class: 'icon')
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog', class: 'icon')
   .side__contents
-    .side__contents__group
-      .side__contents__group__group-name
-        techcamp
-      .side__contents__group__message
-        まだメッセージがありません
-    .side__contents__group
-      .side__contents__group__group-name
-        techcamp
-      .side__contents__group__message
-        まだメッセージがありません
-    .side__contents__group
-      .side__contents__group__group-name
-        techcamp
-      .side__contents__group__message
-        まだメッセージがありません
-    .side__contents__group
-      .side__contents__group__group-name
-        techcamp
-      .side__contents__group__message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .side__contents__group
+        = link_to '#' do
+          .side__contents__group__group-name
+            = group.name
+          .side__contents__group__message
+            メッセージはまだありません。
