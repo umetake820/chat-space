@@ -2,38 +2,74 @@
   .main__header
     .main__header__left
       .main__header__left__current-group
-        test
+        = @group.name
       .main__header__left__member-list
-        Member：masa
+        Member：
+        %ul
+          - @group.users.each do |user|
+            %li= user.name
     .main__header__edit-btn
-      = link_to "#" do
+      = link_to edit_group_path(@group.id) do
         Edit
 
   .contents
-    .contents__messages
-      .contents__messages__date
-        masa
-        %span 2019/11/20(Wed) 17:43:01
-      .contents__messages__message
-        おはよう！
-    .contents__messages
-      .contents__messages__date
-        masa
-        %span 2019/11/20(Wed) 17:43:01
-      .contents__messages__message
-        おはよう！
-    .contents__messages
-      .contents__messages__date
-        masa
-        %span 2019/11/20(Wed) 17:43:01
-      .contents__messages__message
-        おはよう！
+    = render @messages
 
   .footer
-    %form
+    = form_for [@group, @message] do |f|
       .input
-        %input{type: "text", class: "input__text", placeholder: "type a message"}
-        %label{class: "input__image"}
+        = f.text_field :content, class: 'input__text', placeholder: 'type a message'
+        = f.label :image, class: 'input__image' do
           = icon('fas', 'image')
-          %input{type: "file", class: "input__image__file"}
-      %input{type: "submit", value: "Send", class: "submit-btn"}
+          = f.file_field :image, class: 'input__image__file'
+      = f.submit 'Send', class: 'submit-btn'
+
+
+  -# .footer
+  -#   %form
+  -#     .input
+  -#       = form_for [@group, @message] do |f|
+  -#         = f.text_field :content, class: 'input__text"', placeholder: 'type a message'
+  -#         = f.label :image, class: 'input__image' do
+  -#           = icon('fas', 'image')
+  -#           = f.file_field :image, class: 'input__image__file"'
+  -#         = f.submit 'Send', class: 'submit-btn'
+
+
+-# .contents
+-#   .contents__messages
+-#     .contents__messages__date
+-#       masa
+-#       %span 2019/11/20(Wed) 17:43:01
+-#     .contents__messages__message
+-#       おはよう！
+-#   .contents__messages
+-#     .contents__messages__date
+-#       masa
+-#       %span 2019/11/20(Wed) 17:43:01
+-#     .contents__messages__message
+-#       おはよう！
+-#   .contents__messages
+-#     .contents__messages__date
+-#       masa
+-#       %span 2019/11/20(Wed) 17:43:01
+-#     .contents__messages__message
+-#       おはよう！
+
+-# .footer
+-#   %form
+-#     .input
+-#       %input{type: "text", class: "input__text", placeholder: "type a message"}
+-#       %label{class: "input__image"}
+-#         = icon('fas', 'image')
+-#         %input{type: "file", class: "input__image__file"}
+-#     %input{type: "submit", value: "Send", class: "submit-btn"}
+
+-# .form
+-#   = form_for [@group, @message] do |f|
+-#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+-#     .form__mask
+-#       = f.label :image, class: 'form__mask__image' do
+-#         = icon('fas', 'image', class: 'icon')
+-#         = f.file_field :image, class: 'hidden'
+-#     = f.submit 'Send', class: 'form__submit'
