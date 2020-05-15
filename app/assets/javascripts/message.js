@@ -14,7 +14,6 @@ $(function(){
                       <img class="lower-message__image" src=${message.image} >
                     </div>
                   </div>`
-      return html;
     } else {
       var html = `<div class="contents__messages">
                     <div class="contents__messages__data">
@@ -27,8 +26,8 @@ $(function(){
                       </p>
                     </div>
                   </div>`
-      return html;
     };
+    return html;
   }
 
   $('#new_message').on('submit', function(e){
