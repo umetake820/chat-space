@@ -21,6 +21,7 @@ body {
           &__user-name {
             color: #ffffff;
             line-height: 20px;
+            font-weight: bold;
           }
           &__menu {
             width: 60px;
@@ -38,16 +39,15 @@ body {
       &__contents {
         background-color: #2f3e51;
         height: calc(100vh - 100px);
+        padding: 0 20px;
         &__group {
           color: #ffffff;
-          height: 91px;
-          margin: 0 20px;
+          padding: 20px 0 20px;
           a {
             color: #ffffff;
             text-decoration: none;
             .group-name {
               font-size: 15px;
-              padding-top: 20px;
             }
             .group__message {
               font-size: 11px;
@@ -82,14 +82,13 @@ body {
           }
         }
         &__edit-btn {
-          font-size: 16px;
           height: 40px;
-          border: 1px solid #38aef0;
-          margin: 28px 40px 0 0;
+          line-height: 40px;
           padding: 0 20px;
+          margin-top: 30px;
+          border: solid 1px #38aef0;
+          position: absolute;
           right: 40px;
-          display: flex;
-          align-items: center;
         }
         a {
           color: #38aef0;
@@ -99,17 +98,30 @@ body {
 
       .contents {
         background-color: #fafafa;
+        padding: 46px 40px;
         height: calc(100vh - 100px - 90px);
         overflow: scroll;
         &__messages {
-          padding: 35px 0 0 40px;
-          &__data {
-            color: #333333;
+          padding-bottom: 40px;
+          .messages__data {
+            margin-bottom: 10px;
             font-size: 16px;
-            span {
+            display: flex;
+            &__user-name {
+              color: #333333;
+              font-size: 16px;
+              font-weight: bold;
+            }
+            &__date {
               color: #999999;
               font-size: 12px;
+              margin-left: 10px;
             }
+          }
+          .messages_text {
+            color: #434a54;
+            font-size: 14px;
+            margin-bottom: 10px;
           }
         }
       }
@@ -121,7 +133,7 @@ body {
         .new_message {
           display: flex;
           .input {
-            width: 100%;
+            width: calc(100vw - 150px);
             display: flex;
             position: relative;
             &__text {
@@ -141,10 +153,12 @@ body {
           }
           .submit-btn {
             color: #ffffff;
-            background-color: #38aef0;
-            height: 50px;
             width: 100px;
+            height: 50px;
+            padding: 0 30px;
             margin-left: 15px;
+            background-color: #38aef0;
+            cursor: pointer;
           }
         }
       }

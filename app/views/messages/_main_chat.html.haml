@@ -20,6 +20,6 @@
       .input
         = f.text_field :content, class: 'input__text', placeholder: 'type a message'
         = f.label :image, class: 'input__image' do
-          = icon('fas', 'image')
+          = icon('fa', 'image')
           = f.file_field :image, class: 'input__image__file'
       = f.submit 'Send', class: 'submit-btn'
